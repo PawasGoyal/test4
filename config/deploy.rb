@@ -1,8 +1,17 @@
 # config valid for current version and patch releases of Capistrano
 lock "~> 3.17.3"
 
-set :application, "my_app_name"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :application, "test4"
+set :repo_url, "git@github.com:PawasGoyal/test4.git"
+set :deploy_to, '/home/ubuntu/test4'
+set :branch, 'main'
+
+set :rails_env, 'production'
+set :keep_releases, 3
+
+
+append :linked_files, %w{config/master.key config/database.yml}
+append :linked_dirs, "log", "tmp/pids", "tmp/cache", "tmp/sockets", "vendor/bundle", ".bundle"
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
